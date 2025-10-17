@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>คลังเวลา - Timebank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Sarabun', 'sans-serif'],
+              prompt: ['Prompt', 'sans-serif'],
+            },
+            colors: {
+              background: '#fdfaf5',
+              surface: '#ffffff',
+              'primary-text': '#3a3a3a',
+              'secondary-text': '#7a7a7a',
+              accent: {
+                DEFAULT: '#d9a404', // Mustard Yellow
+                hover: '#c89603',
+                light: '#f5efdc',
+              },
+              muted: {
+                DEFAULT: '#f0e6c0', // Sandy Beige
+                hover: '#e9dcb1',
+              },
+              'border-color': '#e5e1d8',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Custom Scrollbar for a light theme */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f0e6c0; /* muted */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d9a404; /* accent */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #c89603; /* accent-hover */
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes subtleEnter {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes dropdownEnter {
+        from { opacity: 0; transform: scale(0.98) translateY(-5px); }
+        to { opacity: 1; transform: scale(1) translateY(0); }
+      }
+      
+      .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+      .animate-subtle-enter { 
+        opacity: 0;
+        animation: subtleEnter 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+      .animate-dropdown-enter {
+        transform-origin: top;
+        animation: dropdownEnter 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.3",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@heroicons/react/": "https://aistudiocdn.com/@heroicons/react@^2.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background text-primary-text">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

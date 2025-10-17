@@ -1,0 +1,5 @@
+{
+  "name": "Timebank",
+  "description": "A web application for a time banking platform where users can exchange skills and services, built with React and Tailwind CSS.",
+  "requestFramePermissions": []
+}
