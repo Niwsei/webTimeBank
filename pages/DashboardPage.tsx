@@ -14,7 +14,6 @@ import {
     UserCircleIcon
 } from '@heroicons/react/24/solid';
 import { SparklesIcon } from '@heroicons/react/24/outline';
-import { getAIRecommendations } from '../lib';
 import DashboardPageSkeleton from '../components/DashboardPageSkeleton';
 
 const ActionCard: React.FC<{ to: string; icon: React.ElementType; title: string; isPrimary?: boolean }> = ({ to, icon: Icon, title, isPrimary }) => (
@@ -78,14 +77,7 @@ const DashboardPage: React.FC = () => {
       setLoadingRecs(true);
       const userContext = `User has skills: ${currentUser.skills.join(', ')}. Bio: ${currentUser.bio}`;
       const availableRequests = requests.filter(r => r.user.id !== currentUser.id && r.status === 'open');
-      
-      getAIRecommendations(userContext, availableRequests).then(recIds => {
-        const recommendedRequests = recIds
-          .map(id => availableRequests.find(r => r.id === id))
-          .filter((r): r is ServiceRequest => r !== undefined);
-        setRecommendations(recommendedRequests);
-        setLoadingRecs(false);
-      });
+     
     } else {
       setLoadingRecs(false);
     }
